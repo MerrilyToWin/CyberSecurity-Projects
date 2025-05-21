@@ -1,0 +1,19 @@
+# 🔐 Secure Automated Email Sender in Python
+
+This project is a **secure, automated email sender** built in Python. It encrypts your Gmail password using **Fernet + AES** with a **passphrase**, stores it securely, and decrypts it only at runtime for login—**no manual input required after setup**.
+
+---
+
+## 🚀 Features
+
+- ✅ Encrypts and stores your Gmail password securely
+- 🔐 AES encryption of `key.key` with a passphrase using `PyCryptodome`
+- ✉️ Sends plain-text emails with optional file attachments
+- 📄 Allows editable email body through a text file (`body.txt`)
+- 🛡️ Safe for automation — no need to enter passphrase at runtime
+- ⚙️ Automatically creates required files if they don’t exist
+
+---
+
+## 📁 Folder Structure
+
