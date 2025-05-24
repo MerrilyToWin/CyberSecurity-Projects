@@ -25,12 +25,56 @@ Key features include:
 5. **Results**: Open ports are displayed and stored in a list.
 
 ---
-
-## 🚀 Usage
-
 ### 1️⃣ Clone the Repository
 
 ```
 git clone https://github.com/yourusername/port-scanner.git
 cd port-scanner
 ```
+2️⃣ Run the Script
+```
+python port_scanner.py
+```
+
+3️⃣ Enter Target IP
+Example:
+```
+Enter the target IP address: 192.168.1.1
+The program will scan ports from 1 to 1023 by default.
+```
+🧪 Example Output
+```
+Enter the target IP address: 192.168.1.1
+Port 22 is open on 192.168.1.1
+Port 80 is open on 192.168.1.1
+Port 443 is open on 192.168.1.1
+Open ports on 192.168.1.1: [22, 80, 443]
+```
+
+📌 Notes
+Default port range: 1–1023
+Threads: 500 by default for faster scanning
+Can be modified for other port ranges or thread counts
+
+💡 Enhancements (Future Ideas)
+Allow custom port ranges via user input
+Save scan results to a file
+Add service detection for common ports
+Add banner grabbing (fetch server info)
+Use command-line arguments (argparse)
+
+🔒 Ethical Use Reminder
+❗ Port scanning without explicit permission may be illegal and is considered unethical. Use this tool only on networks you own or have authorization to scan.
+
+📄 License
+MIT License – For educational purposes only.
+
+🤝 Contributing
+Contributions are welcome! Feel free to fork, modify, and submit pull requests.
+
+📧 Contact
+For educational discussions, reach out at:
+merwinofficial24@gmail.com
+
+
+Let me know if you'd like a proper folder structure or setup instructions for a GitHub repository. I c
