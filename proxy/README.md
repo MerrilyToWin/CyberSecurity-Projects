@@ -30,7 +30,7 @@ Install dependencies:
 ```
 mitmproxy -s logger_addon.py --listen-port 8085 --listen-host 0.0.0.0
 ```
-✅ This makes the proxy listen on all IP addresses, not just 127.0.0.1.
+➡️This makes the proxy listen on all IP addresses, not just 127.0.0.1.
 
 ✅ 2. Run GUI in another terminal
 ```
@@ -44,10 +44,10 @@ python cert_installer.py
 
 ✅ 4. Configure Browser Proxy
 Set your browser/system proxy to:
-
-Host: localhost
+```
+Host: localhost your ip address (ipconfig in cmd)
 Port: 8085
-
+```
 Now visit some sites (like YouTube) to trigger alerts.
 
 🛑 Common Errors & Fixes
