@@ -12,14 +12,13 @@ A Python-based proxy tool powered by `mitmproxy` with the following key features
 
 ## 🗂️ Directory Structure
 ```
-├── main.py              
-├── proxy_interceptor.py    
-├── requirements.txt         
-├── logs/
-│   └── log.json             
-├── alerts/
-│   └── alerts.log           
-└── README.md
+├── logger_addon.py         # Handles URL logging, alerts, and blacklist
+├── gui_viewer.py           # GUI to view logs & alerts
+├── run_gui.py              # Launches the GUI
+├── cert_installer.py       # Installs mitmproxy certificate
+├── traffic_simulator.py    # Optional: sends fake requests to test
+├── logs.json               # Log file (auto-created)
+├── alerts.log              # Alert log file (auto-created)
 ```
 
 ## 📦 Requirements
@@ -27,60 +26,29 @@ A Python-based proxy tool powered by `mitmproxy` with the following key features
 Python 3.8 or above
 
 Install dependencies:
+✅ 1. Run mitmproxy with Custom Addon
+```
+mitmproxy -s logger_addon.py --listen-port 8085 --listen-host 0.0.0.0
+```
+✅ This makes the proxy listen on all IP addresses, not just 127.0.0.1.
 
-```bash
-pip install -r requirements.txt
+✅ 2. Run GUI in another terminal
 ```
-```bash
-requirements.txt:
-mitmproxy
-tk
+python run_gui.py
 ```
-🔐 Setup HTTPS Interception
-Run mitmproxy once to generate certificates:
+✅ 3. (Optional) Install Certificate
 ```
-mitmproxy
+python cert_installer.py
 ```
-Visit in browser:
-```
-http://mitm.it
-```
-Download and install the certificate for your OS/browser.
-For Firefox:
-Go to Settings → Privacy & Security → View Certificates → Import
+➡️ This ensures HTTPS sites don’t throw ERR_CERT_AUTHORITY_INVALID.
 
-🚀 Running the Proxy GUI
-Run this command:
-```bash
-python main.py
-```
+✅ 4. Configure Browser Proxy
+Set your browser/system proxy to:
 
-GUI will appear with a Start Proxy button.
-Starts the proxy on 0.0.0.0:8085
-Configure your browser or device to use the proxy IP:
-Example: 192.168.1.5:8085
+Host: localhost
+Port: 8085
 
-⚠️ Domain Blacklist
-Modify the blacklist in proxy_interceptor.py:
-```
-blacklist = ["www.youtube.com", "www.tiktok.com", "www.instagram.com"]
-```
-
-📄 Log Format (logs/log.json)
-```
-[
-  {
-    "user_ip": "192.168.1.10",
-    "url": "https://www.example.com",
-    "timestamp": "2025-07-05 17:22:10"
-  }
-]
-```
-
-🚨 Alert Format (alerts/alerts.log)
-```
-[ALERT] 2025-07-05 17:23:01 - 192.168.1.10 tried to access blacklisted domain: www.youtube.com
-```
+Now visit some sites (like YouTube) to trigger alerts.
 
 🛑 Common Errors & Fixes
 Error [WinError 10013]:
